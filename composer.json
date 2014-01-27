@@ -1,0 +1,28 @@
+{
+    "name": "gourmet/email",
+    "description": "Gourmet Email Plugin for rapid CakePHP application development.",
+    "type": "cakephp-plugin",
+    "keywords": ["cakephp", "gourmet", "email", "plugin"],
+    "homepage": "https://github.com/gourmet/email",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jad Bitar",
+            "homepage": "http://jadb.io",
+            "role": "Author"
+        },
+        {
+            "name": "Others",
+            "homepage": "https://github.com/gourmet/email/graphs/contributors"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/gourmet/email/issues",
+        "source": "https://github.com/gourmet/email"
+    },
+    "require": {
+        "php": ">=5.3.0",
+        "composer/installers": "*",
+        "gourmet/common": "*"
+    }
+}
