@@ -1,5 +1,7 @@
 # Email
 
+[![Build Status](https://travis-ci.org/gourmet/email.svg?branch=master)](https://travis-ci.org/gourmet/email)
+
 Makes [CakePHP]'s `Email` even better by adding:
 
 * Default email layout with basic styling (safe for emails)
