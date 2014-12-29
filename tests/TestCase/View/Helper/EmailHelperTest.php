@@ -10,15 +10,19 @@ use Cake\TestSuite\TestCase;
 use Cake\View\Helper\HtmlHelper;
 use Gourmet\Email\View\Helper\EmailHelper;
 
-class TestEmailHelper extends EmailHelper {
-    public function setType($type) {
+class TestEmailHelper extends EmailHelper
+{
+    public function setType($type)
+    {
         $this->_emailType = $type;
     }
 }
 
-class EmailHelperTest extends TestCase {
+class EmailHelperTest extends TestCase
+{
 
-    public function setUp() {
+    public function setUp()
+    {
         parent::setUp();
         $controller = $this->getMock('Cake\Controller\Controller', ['redirect']);
         $this->View = $this->getMock('Cake\View\View', array('append'));
@@ -31,12 +35,14 @@ class EmailHelperTest extends TestCase {
         Configure::write('App.namespace', 'TestApp');
     }
 
-    public function tearDown() {
+    public function tearDown()
+    {
         parent::tearDown();
         unset($this->Email, $this->Html, $this->View);
     }
 
-    public function testBeforeRenderFile() {
+    public function testBeforeRenderFile()
+    {
         $event = $this->getMock('Cake\Event\Event', [], [$this->View]);
         $viewFile = '/path/to/app/Template/Email/text/welcome.ctp';
 
@@ -51,7 +57,8 @@ class EmailHelperTest extends TestCase {
         $this->assertEquals('html', $this->Email->getType());
     }
 
-    public function testLink() {
+    public function testLink()
+    {
         $url = Router::url('/', ['full' => true]);
 
         $this->Email->setType('html');
@@ -67,10 +74,11 @@ class EmailHelperTest extends TestCase {
         $this->assertEquals($expected, $result);
     }
 
-    public function testImage() {
+    public function testImage()
+    {
         $this->Email->setType('html');
         $result = $this->Email->image('sample.jpg');
-        $expected = $this->Html->image('sample.jpg', (array) $this->Email->config('attributes.image'));
+        $expected = $this->Html->image('sample.jpg', (array)$this->Email->config('attributes.image'));
 
         $this->assertEquals($result, $expected);
 
@@ -80,10 +88,11 @@ class EmailHelperTest extends TestCase {
         $this->assertEmpty($result);
     }
 
-    public function testMedia() {
+    public function testMedia()
+    {
         $this->Email->setType('html');
         $result = $this->Email->media('sample.mov');
-        $expected = $this->Html->media('sample.mov', (array) $this->Email->config('attributes.media'));
+        $expected = $this->Html->media('sample.mov', (array)$this->Email->config('attributes.media'));
 
         $this->assertEquals($result, $expected);
 
@@ -93,10 +102,11 @@ class EmailHelperTest extends TestCase {
         $this->assertEmpty($result);
     }
 
-    public function testPara() {
+    public function testPara()
+    {
         $this->Email->setType('html');
         $result = $this->Email->para(null, 'lorem ipsum');
-        $expected = $this->Html->para(null, 'lorem ipsum', (array) $this->Email->config('attributes.para'));
+        $expected = $this->Html->para(null, 'lorem ipsum', (array)$this->Email->config('attributes.para'));
 
         $this->assertEquals($result, $expected);
 
@@ -108,5 +118,4 @@ class EmailHelperTest extends TestCase {
 
         $this->assertEquals($result, $expected);
     }
-
 }

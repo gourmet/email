@@ -1,10 +1,6 @@
 <?php
-/**
- * Test suite bootstrap.
- *
- * @copyright     Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
+// @codingStandardsIgnoreFile
+
 use Cake\Cache\Cache;
 use Cake\Core\Configure;
 use Cake\Core\Plugin;
@@ -36,21 +32,21 @@ mb_internal_encoding('UTF-8');
 
 Configure::write('debug', true);
 Configure::write('App', [
-	'namespace' => 'App',
-	'encoding' => 'UTF-8',
-	'base' => false,
-	'baseUrl' => false,
-	'dir' => 'src',
-	'webroot' => WEBROOT_DIR,
-	'www_root' => WWW_ROOT,
-	'fullBaseUrl' => 'http://localhost',
-	'imageBaseUrl' => 'img/',
-	'jsBaseUrl' => 'js/',
-	'cssBaseUrl' => 'css/',
-	'paths' => [
-		'plugins' => [dirname(APP) . DS . 'plugins' . DS],
-		'templates' => [APP . 'Template' . DS]
-	]
+    'namespace' => 'App',
+    'encoding' => 'UTF-8',
+    'base' => false,
+    'baseUrl' => false,
+    'dir' => 'src',
+    'webroot' => WEBROOT_DIR,
+    'www_root' => WWW_ROOT,
+    'fullBaseUrl' => 'http://localhost',
+    'imageBaseUrl' => 'img/',
+    'jsBaseUrl' => 'js/',
+    'cssBaseUrl' => 'css/',
+    'paths' => [
+        'plugins' => [dirname(APP) . DS . 'plugins' . DS],
+        'templates' => [APP . 'Template' . DS]
+    ]
 ]);
 
 

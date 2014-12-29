@@ -5,9 +5,11 @@ namespace Gourmet\Email\Test\Sample;
 use Cake\Network\Email\Email;
 use Cake\TestSuite\TestCase;
 
-class EmailTest extends TestCase {
+class EmailTest extends TestCase
+{
 
-    public function setUp() {
+    public function setUp()
+    {
         parent::setUp();
         Email::configTransport('test', ['className' => 'Debug']);
         $this->Email = new Email([
@@ -20,13 +22,15 @@ class EmailTest extends TestCase {
         ]);
     }
 
-    public function tearDown() {
+    public function tearDown()
+    {
         parent::tearDown();
         Email::dropTransport('test');
         unset($this->Email);
     }
 
-    public function testSend() {
+    public function testSend()
+    {
         $this->Email->viewVars(['user' => ['username' => 'janedoe']]);
         $this->Email->template('welcome');
 
@@ -35,5 +39,4 @@ class EmailTest extends TestCase {
 
         $this->assertEquals($expected, array_keys($result));
     }
-
 }
