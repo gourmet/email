@@ -4,7 +4,7 @@
 	>
 
 	<testsuites>
-		<testsuite name="Liquid Test Cases">
+		<testsuite name="Email Test Cases">
 			<directory>./tests/</directory>
 		</testsuite>
 	</testsuites>
