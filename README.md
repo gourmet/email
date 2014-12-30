@@ -1,6 +1,8 @@
 # Email
 
 [![Build Status](https://travis-ci.org/gourmet/email.svg?branch=master)](https://travis-ci.org/gourmet/email)
+[![Total Downloads](https://poser.pugx.org/gourmet/email/downloads.svg)](https://packagist.org/packages/gourmet/email)
+[![License](https://poser.pugx.org/gourmet/email/license.svg)](https://packagist.org/packages/gourmet/email)
 
 Makes [CakePHP]'s `Email` even better by adding:
 
