@@ -105,9 +105,8 @@ class PostmarkApiTransport extends AbstractApiTransport
         ];
 
         // Tag
-        if ($tag = $this->_headers['X-Tag']) {
+        if ($tag = $this->_isTaggedRequest()) {
             $message['Tag'] = $tag;
-            unset($this->_headers['X-Tag']);
         }
 
         // Body

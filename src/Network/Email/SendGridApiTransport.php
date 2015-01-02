@@ -50,6 +50,11 @@ class SendGridApiTransport extends AbstractApiTransport
             'api_key' => $this->config('apiKey'),
         ];
 
+        // Category
+        if ($tag = $this->_isTaggedRequest()) {
+            $payload['x-smtpapi']['category'] = $tag;
+        }
+
         // Main recipient(s)
         $payload += $this->_prepareRecipientAddress('to');
 
@@ -80,10 +85,6 @@ class SendGridApiTransport extends AbstractApiTransport
         // Headers
         $payload['headers'] = ['MessageID' => $this->_prepareMessageId()];
         foreach ($this->_headers as $k => $v) {
-            if ('X-Tag' == $k) {
-                $payload['x-smtpapi']['category'] = $v;
-                continue;
-            }
             if (strpos($k, 'x-smtpapi') === 0) {
                 $payload['x-smtpapi'][$k] = $v;
                 continue;

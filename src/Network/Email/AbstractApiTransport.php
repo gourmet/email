@@ -133,7 +133,13 @@ abstract class AbstractApiTransport extends AbstractTransport
      */
     protected function _isTaggedRequest()
     {
-        return false;
+        $tag = !empty($this->_headers['X-Tag']);
+
+        if ($tag && $tag = $this->_headers['X-Tag']) {
+            unset($this->_headers['X-Tag']);
+        }
+
+        return $tag;
     }
 
     /**
