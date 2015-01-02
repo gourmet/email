@@ -147,23 +147,6 @@ class SendGridApiTransport extends AbstractApiTransport
     }
 
     /**
-     * Builds attachments' part of the payload.
-     *
-     * @return array Attachments' payload.
-     */
-    protected function _buildAttachments()
-    {
-        $attachments = [];
-        $i = 0;
-
-        foreach ($this->_cakeEmail->attachments() as $file => $info) {
-            // TODO complete
-        }
-
-        return $attachments;
-    }
-
-    /**
      * Handles the API response.
      *
      * @return array Decoded response.
