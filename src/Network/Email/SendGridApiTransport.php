@@ -149,7 +149,7 @@ class SendGridApiTransport extends AbstractApiTransport
     /**
      * Builds attachments' part of the payload.
      *
-     * @return array
+     * @return array Attachments' payload.
      */
     protected function _buildAttachments()
     {
@@ -164,9 +164,9 @@ class SendGridApiTransport extends AbstractApiTransport
     }
 
     /**
-     * Handles API response.
+     * Handles the API response.
      *
-     * @return bool True if the request was successful.
+     * @return array Decoded response.
      */
     protected function _handleResponse($response)
     {
