@@ -32,7 +32,7 @@ class SendGridApiTransportTest extends TestCase
         $email->messageID('<4d9946cf-0a44-4907-88fe-1d0ccbdd56cb@localhost>');
         $email->subject('Testing API');
         $email->setHeaders([
-            'X-Mailer' => Email::EMAIL_CLIENT,
+            'X-Mailer' => 'CakePHP Email',
             'X-Tag' => 'sometag',
         ]);
         $email->expects($this->at(0))

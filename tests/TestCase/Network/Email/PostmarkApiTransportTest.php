@@ -31,7 +31,7 @@ class PostmarkApiTransportTest extends TestCase
         $email->messageID('<4d9946cf-0a44-4907-88fe-1d0ccbdd56cb@localhost>');
         $email->subject('Testing SMTP');
         $email->setHeaders([
-            'X-Mailer' => Email::EMAIL_CLIENT,
+            'X-Mailer' => 'CakePHP Email',
             'Date' => $this->date,
             'X-Tag' => 'sometag',
         ]);
