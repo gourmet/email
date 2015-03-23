@@ -52,7 +52,7 @@ In your email views, you can now use the `Gourmet/Email.Email` helper:
 // app/Template/Email/html/welcome.ctp
 Welcome <?= $user['username'] ?>
 
-Please confirm your account by click on the link below:
+Please confirm your account by clicking on the link below:
 
 <?= $this->Email->link('Confirm account', '/') ?>
 
