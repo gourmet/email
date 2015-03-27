@@ -4,7 +4,7 @@
 [![Total Downloads](https://poser.pugx.org/gourmet/email/downloads.svg)](https://packagist.org/packages/gourmet/email)
 [![License](https://poser.pugx.org/gourmet/email/license.svg)](https://packagist.org/packages/gourmet/email)
 
-Makes [CakePHP]'s `Email` even better by adding:
+Makes [CakePHP 3]'s `Email` even better by adding:
 
 * Default email layout with basic styling (safe for emails)
 * `EmailHelper` which extends `HtmlHelper` to automatically format paragraphs, links, etc.
@@ -13,16 +13,11 @@ Makes [CakePHP]'s `Email` even better by adding:
 
 ## Install
 
-Using [Composer][composer]:
+Using [Composer]:
 
 ```
-composer require gourmet/email
+composer require gourmet/email:~3.0
 ```
-
-Because this plugin has the type `cakephp-plugin` set in its own `composer.json`,
-[Composer][composer] will install it inside your /plugins directory, rather than
-in your `vendor-dir`. It is recommended that you add /plugins/gourmet to your
-`.gitignore` file and here's [why][composer:ignore].
 
 You then need to load the plugin. In `boostrap.php`, something like:
 
@@ -100,7 +95,6 @@ http://github.com/gourmet/emails/issues
 
 Copyright (c) 2014, Jad Bitar and licensed under [The MIT License][mit].
 
-[cakephp]:http://cakephp.org
-[composer]:http://getcomposer.org
-[composer:ignore]:http://getcomposer.org/doc/faqs/should-i-commit-the-dependencies-in-my-vendor-directory.md
+[CakePHP 3]:http://cakephp.org
+[Composer]:http://getcomposer.org
 [mit]:http://www.opensource.org/licenses/mit-license.php
