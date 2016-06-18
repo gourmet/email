@@ -5,7 +5,7 @@ namespace Gourmet\Email\View\Helper;
 use Cake\Event\Event;
 use Cake\Routing\Router;
 use Cake\Utility\Hash;
-use Cake\Utility\String;
+use Cake\Utility\Text;
 use Cake\View\Helper\HtmlHelper;
 use Cake\View\View;
 
@@ -115,7 +115,7 @@ class EmailHelper extends HtmlHelper
 
         $options += ['templates' => []];
         $options['templates'] += ['link' => ':title: :url'];
-        return String::insert($options['templates']['link'], compact('title', 'url'));
+        return Text::insert($options['templates']['link'], compact('title', 'url'));
     }
 
     /**
