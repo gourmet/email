@@ -2,12 +2,15 @@
 
 namespace Gourmet\Email\Test\TestCase\View\Helper;
 
+use Cake\Controller\Controller;
 use Cake\Core\Configure;
+use Cake\Event\Event;
 use Cake\Network\Email\Email;
 use Cake\Network\Request;
 use Cake\Routing\Router;
 use Cake\TestSuite\TestCase;
 use Cake\View\Helper\HtmlHelper;
+use Cake\View\View;
 use Gourmet\Email\View\Helper\EmailHelper;
 
 class TestEmailHelper extends EmailHelper
@@ -24,8 +27,14 @@ class EmailHelperTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $controller = $this->getMock('Cake\Controller\Controller', ['redirect']);
-        $this->View = $this->getMock('Cake\View\View', array('append'));
+        $controller = $this->getMockBuilder(Controller::class)
+            ->setMethods(['redirect'])
+            ->getMock();
+
+        $this->View = $this->getMockBuilder(View::class)
+            ->setMethods(['append'])
+            ->getMock();
+
         $this->Email = new TestEmailHelper($this->View);
         $this->Email->request = new Request();
         $this->Email->request->webroot = '';
@@ -43,7 +52,10 @@ class EmailHelperTest extends TestCase
 
     public function testBeforeRenderFile()
     {
-        $event = $this->getMock('Cake\Event\Event', [], [$this->View]);
+        $event = $this->getMockBuilder(Event::class)
+            ->setConstructorArgs([$this->View])
+            ->getMock();
+
         $viewFile = '/path/to/app/Template/Email/text/welcome.ctp';
 
         $this->Email->beforeRenderFile($event, $viewFile);
