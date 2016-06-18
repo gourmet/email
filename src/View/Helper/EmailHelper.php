@@ -59,8 +59,8 @@ class EmailHelper extends HtmlHelper
 
     public function beforeRenderFile(Event $event, $viewFile)
     {
-        $file = explode(DS, $viewFile);
-        $this->_emailType = $file[count($file) - 2];
+        preg_match('/Email\/(text|html)\//', $viewFile, $match);
+        list(, $this->_emailType) = $match;
         $this->_eol = 'text' == $this->_emailType ? PHP_EOL : '<br>';
     }
 
