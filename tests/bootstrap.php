@@ -53,4 +53,4 @@ Configure::write('App', [
 ]);
 
 
-Plugin::load('Gourmet/Email', ['path' => ROOT]);
+Plugin::load('Gourmet/Email', ['path' => ROOT, 'bootstrap' => true]);
