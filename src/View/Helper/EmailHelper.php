@@ -76,7 +76,7 @@ class EmailHelper extends HtmlHelper
 
     protected function _eol()
     {
-        return $this->config('templates.eol' . $this->getType());
+        return $this->getConfig('templates.eol' . $this->getType());
     }
 
     /**
@@ -95,7 +95,7 @@ class EmailHelper extends HtmlHelper
         if ('text' == $this->getType()) {
             return null;
         }
-        return parent::image($path, $this->_mergeAttributes($options, $this->config('attributes.image')));
+        return parent::image($path, $this->_mergeAttributes($options, $this->getConfig('attributes.image')));
     }
 
     /**
@@ -106,7 +106,7 @@ class EmailHelper extends HtmlHelper
         $url = Router::url($url, ['full' => true]);
 
         if ('html' == $this->getType()) {
-            return parent::link($title, $url, $this->_mergeAttributes($options, $this->config('attributes.link')));
+            return parent::link($title, $url, $this->_mergeAttributes($options, $this->getConfig('attributes.link')));
         }
 
         if (empty($url)) {
@@ -127,7 +127,7 @@ class EmailHelper extends HtmlHelper
             return;
         }
 
-        return parent::media($path, $this->_mergeAttributes($options, $this->config('attributes.media')));
+        return parent::media($path, $this->_mergeAttributes($options, $this->getConfig('attributes.media')));
     }
 
     /**
@@ -139,7 +139,7 @@ class EmailHelper extends HtmlHelper
             return $this->_eol() . $this->_eol() . $text . $this->_eol() . $this->_eol();
         }
 
-        return parent::para($class, $text, $this->_mergeAttributes($options, $this->config('attributes.para')));
+        return parent::para($class, $text, $this->_mergeAttributes($options, $this->getConfig('attributes.para')));
     }
 
     /**
@@ -156,7 +156,7 @@ class EmailHelper extends HtmlHelper
         }
 
         if (false === $options) {
-            return $this->config('templates.tableend');
+            return $this->getConfig('templates.tableend');
         }
 
         $tag = 'table';
@@ -166,7 +166,7 @@ class EmailHelper extends HtmlHelper
 
         $templater = $this->templater();
         return $templater->format('table', [
-        'attrs' => $templater->formatAttributes($this->_mergeAttributes($options, $this->config('attributes.table'))),
+        'attrs' => $templater->formatAttributes($this->_mergeAttributes($options, $this->getConfig('attributes.table'))),
         'content' => $content
         ]);
     }
